@@ -25,7 +25,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         fetch-depth: 1000
-- name: Build packages
+    - name: Build packages
       run: |
         BASE_COMMIT=$(jq --raw-output .pull_request.base.sha "$GITHUB_EVENT_PATH")
         OLD_COMMIT=$(jq --raw-output .commits[0].id "$GITHUB_EVENT_PATH")
