@@ -174,8 +174,10 @@ jobs:
                 rm termux-packages-in-pacman-format/docs/x11/$arch/${dir_sp[-1]}
               fi
             done
+            if [ $(curl --write-out '%{http_code}' --silent --output /dev/null https://raw.githubusercontent.com/termux/termux-packages/master/packages/$name/build.sh) != "200" ]; then
+              mv $j termux-packages-in-pacman-format/docs/x11/$arch
+            fi
             unset name name2
-            mv $j termux-packages-in-pacman-format/docs/x11/$arch
           done
         done
         # Push repo
