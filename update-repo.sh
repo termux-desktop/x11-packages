@@ -37,13 +37,13 @@ done
 read -p "Username: " username
 read -sp "Key: " key
 echo
-git remote set-url origin "https://${username}:${key}@github.com/Maxython/termux-packages.git"
+git remote set-url origin "https://${username}:${key}@github.com/pkgs-termux/x11-packages.git"
 git reset
 
 # Edit file
-for i in $(grep -l ">>>>>>>" packages/*/*); do
+for i in $(grep -s -l ">>>>>>>" $(find . \( -path ./.git -o -path ./.github \) -prune -o -type f -not -name update-repo.sh)); do
 	rm $i
-	wget -O $i https://raw.githubusercontent.com/termux/termux-packages/master/$i
+	wget -O $i https://raw.githubusercontent.com/pkgs-termux/x11-packages/master/$i
 done
 
 # Sort file
@@ -55,6 +55,6 @@ for i in $(list_pkg); do
 	git push origin master
 done
 
-git remote set-url origin "https://github.com/Maxython/termux-packages"
+git remote set-url origin "https://github.com/pkgs-termux/x11-packages"
 
 info "Done."
