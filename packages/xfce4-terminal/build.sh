@@ -8,3 +8,4 @@ TERMUX_PKG_SRCURL=https://archive.xfce.org/src/apps/xfce4-terminal/${TERMUX_PKG_
 TERMUX_PKG_SHA256=7a3337c198e01262a0412384823185753ac8a0345be1d6776a7e9bbbcbf33dc7
 TERMUX_PKG_DEPENDS="desktop-file-utils, exo, hicolor-icon-theme, garcon, libxfce4ui, xfconf, libvte"
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--enable-gtk3"
+
