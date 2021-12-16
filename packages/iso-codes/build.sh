@@ -17,3 +17,4 @@ termux_step_post_configure() {
 termux_step_make_install() {
 	make pkgconfigdir=$TERMUX_PREFIX/lib/pkgconfig install
 }
+
