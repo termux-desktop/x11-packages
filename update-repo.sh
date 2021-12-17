@@ -12,7 +12,7 @@ list_pkg() {
 	local list
 	for i in $(git status -s packages | awk '{print $2}'); do
 		local dir_sp=(${i//// })
-		if [[ ! $(echo $list | grep "${dir_sp[1]} ") ]]; then
+		if [[ ! $(echo "$list" | grep "/${dir_sp[1]} ") ]]; then
 			list+="packages/${dir_sp[1]} "
 		fi
 	done
@@ -43,8 +43,14 @@ git reset
 # Edit file
 for i in $(grep -s -l ">>>>>>>" $(find . \( -path ./.git -o -path ./.github \) -prune -o -type f -not -name update-repo.sh)); do
 	rm $i
-	wget -O $i https://raw.githubusercontent.com/pkgs-termux/x11-packages/master/$i
+	wget -O $i https://raw.githubusercontent.com/termux/x11-packages/master/$i
 done
+
+# Update repo
+git add .
+git reset .github packages
+git commit -m "Update repo"
+git push origin master
 
 # Sort file
 info "Sort and push packages."
@@ -55,6 +61,6 @@ for i in $(list_pkg); do
 	git push origin master
 done
 
-git remote set-url origin "https://github.com/pkgs-termux/x11-packages"
+git remote set-url origin "https://github.com/pkgs-termux/x11-packages.git"
 
 info "Done."
