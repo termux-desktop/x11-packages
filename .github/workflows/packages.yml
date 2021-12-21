@@ -107,7 +107,7 @@ jobs:
         fi
         if [ -f ./built_packages.txt ]; then
           ./scripts/lint-packages.sh $(cat ./built_packages.txt | awk '{print "packages/"$1"/build.sh"}')
-          ./start-builder.sh ./build-package.sh -s -I -o ./output -a ${{ matrix.target_arch }} $(cat ./built_packages.txt) --format pacman
+          ./start-builder.sh ./build-package.sh -o ./output -a ${{ matrix.target_arch }} $(cat ./built_packages.txt) --format pacman
         fi
         # Put package lists into directory with *.deb files so they will be transferred to
         # upload job.
@@ -144,14 +144,36 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         path: ./
+    - name: Clone termux-packages
+      run: git clone https://github.com/termux/termux-packages
     - name: Uploading packages to hosting
       run: |
+        # func
+        get_name() {
+          local name=""
+          local file_sp=(${1//-/ })
+          for k in $(seq 0 $((${#file_sp[*]}-4))); do
+          if [ -z $name ]; then
+            name="${file_sp[k]}"
+          else
+            name+="-${file_sp[k]}"
+          fi
+          done
+          echo $name
+        }
+        # go to
         for archive in termux-packages-*/*.tar; do
           dir_sp=(${archive//// })
           file_sp=(${dir_sp[-1]//-/ })
           dir=output/${file_sp[1]}
           mkdir -p $dir
           tar xf "$archive" -C $dir
+          for i in $(ls $dir/*.pkg.*); do
+            name=$(get_name $i)
+            if [[ -d termux-packages/$name || -f termux-packages/*/$name.subpackage.sh ]]; then
+              rm $i
+            fi
+          done
         done
         rm ./output/*/.placeholder ./output/*/built_packages.txt
         aws s3 cp ./output s3://termux-x11.pacman/ --recursive
