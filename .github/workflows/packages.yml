@@ -171,7 +171,7 @@ jobs:
           for i in $(ls $dir/output/*.pkg.*); do
             dir_sp=(${i//// })
             name=$(get_name ${dir_sp[-1]})
-            if [[ -d termux-packages/packages/$name || -f termux-packages/packages/*/$name.subpackage.sh ]]; then
+            if [[ -d termux-packages-pacman/packages/$name || $(ls termux-packages-pacman/packages/*/$name.subpackage.sh 2> /dev/null) ]]; then
               rm $i
             fi
           done
