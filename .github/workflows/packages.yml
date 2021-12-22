@@ -168,15 +168,17 @@ jobs:
           dir=output/${file_sp[1]}
           mkdir -p $dir
           tar xf "$archive" -C $dir
+          ls
           for i in $(ls $dir/*.pkg.*); do
-            name=$(get_name $i)
-            if [[ -d termux-packages/$name || -f termux-packages/*/$name.subpackage.sh ]]; then
+            dir_sp=(${i//// })
+            name=$(get_name ${dir_sp[-1]})
+            if [[ -d termux-packages/packages/$name || -f termux-packages/packages/*/$name.subpackage.sh ]]; then
               rm $i
             fi
           done
         done
-        rm ./output/*/.placeholder ./output/*/built_packages.txt
-        aws s3 cp ./output s3://termux-x11.pacman/ --recursive
+        rm output/*/.placeholder output/*/built_packages.txt
+        #aws s3 cp ./output s3://termux-x11.pacman/ --recursive
       env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
