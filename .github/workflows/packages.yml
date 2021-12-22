@@ -168,7 +168,7 @@ jobs:
           dir=output/${file_sp[1]}
           mkdir -p $dir
           tar xf "$archive" -C $dir
-          ls $dir
+          ls output
           for i in $(ls $dir/*.pkg.*); do
             dir_sp=(${i//// })
             name=$(get_name ${dir_sp[-1]})
