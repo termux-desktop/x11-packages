@@ -172,7 +172,7 @@ jobs:
             echo "start test"
             dir_sp=(${i//// })
             name=$(get_name ${dir_sp[-1]})
-            if [[ -d termux-packages-pacman/packages/$name || $(ls termux-packages-pacman/packages/*/$name.subpackage.sh 2> /dev/null) ]]; then
+            if [[ -d termux-packages/packages/$name || $(ls termux-packages/packages/*/$name.subpackage.sh 2> /dev/null) ]]; then
               echo $i
               rm $i
             fi
