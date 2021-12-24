@@ -70,3 +70,4 @@ termux_step_post_make_install() {
 	## use custom variant of vncserver script
 	cp -f "${TERMUX_PKG_BUILDER_DIR}/vncserver" "${TERMUX_PREFIX}/bin/vncserver"
 }
+
