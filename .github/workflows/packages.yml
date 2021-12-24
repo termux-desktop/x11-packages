@@ -170,7 +170,7 @@ jobs:
           tar xf "$archive" -C $dir
           for i in $(ls $dir/output/*.pkg.*); do
             dir_sp=(${i//// })
-            name=$(get_name ${dir_sp[-1]})
+            name=$(get_name ${dir_sp[-1]} | sed 's/-static//')
             if [[ -d termux-packages/packages/$name || $(ls termux-packages/packages/*/$name.subpackage.sh 2> /dev/null) ]]; then
               rm $i
             fi
