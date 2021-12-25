@@ -10,3 +10,4 @@ TERMUX_PKG_RM_AFTER_INSTALL="
 lib/locale
 share/icons/hicolor/icon-theme.cache
 "
+
