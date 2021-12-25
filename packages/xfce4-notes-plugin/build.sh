@@ -10,3 +10,4 @@ TERMUX_PKG_DEPENDS="atk, gtk3, glib, libcairo, gdk-pixbuf, harfbuzz, pango, libs
 TERMUX_PKG_BUILD_DEPENDS="valac"
 TERMUX_PKG_BUILD_IN_SRC=true
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--enable-maintainer-mode"
+
