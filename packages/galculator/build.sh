@@ -12,3 +12,4 @@ termux_step_pre_configure() {
 	CFLAGS+=" -fcommon"
 	export LIBS="-landroid-shmem"
 }
+
