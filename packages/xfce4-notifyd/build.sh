@@ -8,3 +8,4 @@ TERMUX_PKG_SRCURL="http://deb.debian.org/debian/pool/main/x/xfce4-notifyd/xfce4-
 TERMUX_PKG_SHA256=19ab84c6665c7819998f2269322d53f462c30963ce26042df23ae525e7d16545
 TERMUX_PKG_DEPENDS="atk, libcairo, gdk-pixbuf, glib, gtk3, harfbuzz, libnotify, pango, libxfce4ui, libxfce4util, xfconf, xfce4-panel"
 TERMUX_PKG_BUILD_IN_SRC=true
+
