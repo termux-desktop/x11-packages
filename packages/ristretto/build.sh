@@ -8,3 +8,4 @@ TERMUX_PKG_SRCURL=https://archive.xfce.org/src/apps/ristretto/0.12/ristretto-${T
 TERMUX_PKG_SHA256=13853f9ca18466a8e4788e92c7bde3388a93e8340283568f5dee1a9396ffd7ee
 TERMUX_PKG_DEPENDS="gtk3, libexif, libxfce4util, libxfce4ui, file"
 TERMUX_PKG_RECOMMENDS="tumbler"
+
