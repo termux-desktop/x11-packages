@@ -9,3 +9,4 @@ TERMUX_PKG_SHA256=bf82fa86a388124eb3c4854249c30712b2922e61789607268ee14548549b31
 TERMUX_PKG_DEPENDS="gtk3, atk, libcairo, pango, exo, gdk-pixbuf, glib, harfbuzz, thunar, libxfce4util"
 TERMUX_PKG_RECOMMENDS="file-roller"
 TERMUX_PKG_BUILD_IN_SRC=true
+
