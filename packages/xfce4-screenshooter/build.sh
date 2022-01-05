@@ -8,4 +8,3 @@ TERMUX_PKG_SRCURL=https://archive.xfce.org/src/apps/xfce4-screenshooter/1.9/xfce
 TERMUX_PKG_SHA256=33c8aeb53fbdb82dbd7d40bca77a8affbb4116ba0993cd59474b554558e5daa4
 TERMUX_PKG_DEPENDS="exo, libcairo, gdk-pixbuf, glib, gtk3, harfbuzz, pango, libsoup, libxext, libxfixes, libxml2, libsm, libxfce4ui, libxfce4util, xfconf, xfce4-panel"
 TERMUX_PKG_BUILD_IN_SRC=true
-
