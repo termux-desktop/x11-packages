@@ -16,4 +16,3 @@ i3/config.keycodes
 termux_step_pre_configure() {
 	LDFLAGS+=" -Wl,--no-as-needed -landroid-glob -landroid-shmem"
 }
-
