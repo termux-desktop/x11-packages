@@ -12,4 +12,3 @@ TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--enable-notifications --enable-maintainer-mode
 termux_step_pre_configure() {
 	NOCONFIGURE=1 ./autogen.sh
 }
-
