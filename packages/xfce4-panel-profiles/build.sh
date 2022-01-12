@@ -18,4 +18,3 @@ termux_step_configure() {
     -e s,@python@,$TERMUX_PREFIX/bin/python,g \
      Makefile.in > Makefile
 }
-
