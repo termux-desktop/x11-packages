@@ -8,4 +8,3 @@ TERMUX_PKG_SRCURL=https://archive.xfce.org/src/panel-plugins/xfce4-netload-plugi
 TERMUX_PKG_SHA256=6c76260e101790754dd93255ec979accd97d21a21da85d8edcd6c7b01ddcd70c
 TERMUX_PKG_DEPENDS="gtk3, atk, libcairo, pango, gdk-pixbuf, glib, libxfce4util, libxfce4ui, xfce4-panel"
 TERMUX_PKG_BUILD_IN_SRC=true
-
