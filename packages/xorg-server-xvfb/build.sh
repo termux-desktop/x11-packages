@@ -73,4 +73,3 @@ termux_step_post_make_install() {
 if [ "${#}" -eq 1 ] && [ "${1}" == "xorg_server_flags" ]; then
 	echo ${TERMUX_PKG_EXTRA_CONFIGURE_ARGS}
 fi
-
