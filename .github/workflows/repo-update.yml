@@ -35,7 +35,7 @@ jobs:
         cd ../x11-packages
         list_sort=""
         for i in ${list_files[@]}; do
-          list_sort+="$(git rev-list --count "$(git log -n 1 --pretty=format:%H $i)") "
+          list_sort+="$(git rev-list --count "$(git log -n 1 --pretty=format:%H -- $i)") "
         done
         list_sort=($list_sort)
         copy_list_sort=($(sort -n <(printf "%s\n" "${list_sort[@]}")))
