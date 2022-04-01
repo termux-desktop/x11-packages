@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: Clone repository
       run: |
-        git clone --recurse-submodules https://github.com/pkgs-termux/x11-packages.git
+        git clone --recurse-submodules https://github.com/termux-desktop/x11-packages.git
         mv x11-packages x11-packages-pacman
     - name: Clone root repository
       run: git clone https://github.com/termux/x11-packages.git
